@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>获取京东cookie</title>
+    <style>
+        body {
+            display: flex;
+            width: 800px;
+            height: 800px;
+        }
+
+        .jd-iframe {
+            width: 600px;
+            height: 800px;
+            border: 0;
+            overflow-y: auto;
+        }
+
+        .cookie-result {
+            flex: 1;
+            margin-top: 20px;
+            padding: 5px;
+        }
+
+        #cookieInput{
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+<iframe class="jd-iframe" src="http://plogin.m.jd.com/login/login"></iframe>
+<div class="cookie-result">
+    <div>左侧登陆后，cookie自动提取到下方文本框</div>
+    <div>
+        <textarea readonly="true" id="cookieInput"></textarea>
+    </div>
+</div>
+</body>
+</html>
