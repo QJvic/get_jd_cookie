@@ -12,6 +12,7 @@ function createWindow() {
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,
+            partition:String(new Date().getTime()), // 加上时间戳，每次打开新页面
             preload: path.join(__dirname, 'setCookieDom.js')
         },
     })
