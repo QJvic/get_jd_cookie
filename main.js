@@ -5,6 +5,8 @@ const filter = {
     urls: ['https://*.jd.com/*']
 }
 
+const partition = String(new Date().getTime())
+
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
@@ -12,7 +14,7 @@ function createWindow() {
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,
-            partition:String(new Date().getTime()), // 加上时间戳，每次打开新页面
+            partition: partition, // 加上时间戳，每次打开新页面
             preload: path.join(__dirname, 'setCookieDom.js')
         },
     })
@@ -24,7 +26,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
     const win = createWindow()
-    session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
+    session.fromPartition(partition).webRequest.onBeforeSendHeaders(filter, (details, callback) => {
         const cookieTxt = details.requestHeaders.Cookie;
         if (cookieTxt) {
             const cookieValue = getCookie(cookieTxt);
