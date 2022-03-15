@@ -3,6 +3,9 @@
 # 免责申明
 仅供个人学习参考使用，产生各种纠纷与本仓库无关
 
+# 可直接运行文件下载（暂时只有mac版）
+https://github.com/QJvic/get_jd_cookie/releases/tag/111
+
 # 如何使用
 1. 拉取仓库
 
